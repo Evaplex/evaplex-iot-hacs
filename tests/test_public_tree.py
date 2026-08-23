@@ -87,4 +87,5 @@ def test_hacs_action_ignores_only_brands() -> None:
     assert "category: integration" in text
     assert "ignore: brands" in text
     assert "information" not in text
+    assert "contents: read" in text
     assert (ROOT / "README.md").is_file()

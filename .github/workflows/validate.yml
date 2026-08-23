@@ -15,14 +15,17 @@ concurrency:
   group: validate-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
-permissions: {}
+# Empty token scopes make checkout report "repository not found" and hacs/action
+# die with "invalid_token" before any integration checks run.
+permissions:
+  contents: read
 
 jobs:
   tests:
     name: ruff / mypy / pytest
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           persist-credentials: false
       - uses: astral-sh/setup-uv@v5
@@ -35,7 +38,7 @@ jobs:
     name: hassfest
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           persist-credentials: false
       - uses: home-assistant/actions/hassfest@master
@@ -48,5 +51,7 @@ jobs:
         uses: hacs/action@main
         with:
           category: integration
+          github_token: ${{ github.token }}
+          comment: false
           # Brand icons land via home-assistant/brands. Drop this ignore after that PR merges.
           ignore: brands

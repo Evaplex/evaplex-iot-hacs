@@ -1,6 +1,6 @@
 # CONTEXT.md
 
-Commands live in `AGENTS.md`. There is no public user README.
+Commands live in `AGENTS.md`. Human entry: `README.md`.
 
 <!-- AUTO-GENERATED: ENRICH-CONTEXT -->
 ## Architecture Summary

@@ -25,8 +25,10 @@ def _iter_text_files() -> list[Path]:
     return files
 
 
-def test_no_readme_or_user_docs() -> None:
-    assert not (ROOT / "README.md").exists()
+def test_root_readme_without_user_wiki() -> None:
+    readme = ROOT / "README.md"
+    assert readme.is_file()
+    assert readme.read_text(encoding="utf-8").strip()
     assert not (ROOT / "README.rst").exists()
     assert not (ROOT / "info.md").exists()
     assert not (ROOT / "docs").exists()

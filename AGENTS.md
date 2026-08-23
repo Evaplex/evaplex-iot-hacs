@@ -5,7 +5,7 @@
 - Package manager: `uv` (Python 3.12). No `requirements.txt`. No Taskfile.
 - Primary stack: Home Assistant custom integration, domain `evaplex`.
 - Architecture: see `CONTEXT.md`.
-- No public README. Install as a HACS custom repository.
+- Public GitHub/HACS entry is `README.md`. Install as a HACS custom repository.
 - Do not fork API contracts into this tree. Product contracts stay outside this repository.
 
 <!-- AUTO-GENERATED: ENRICH-AGENTS -->
@@ -27,7 +27,7 @@
 - Feature → entity mapping lives in `custom_components/evaplex/application/feature_map.py` only.
 - User-facing strings stay generic. Do not put server error codes in `strings.json`.
 - Do not implement a device-setup UI. Do not duplicate product API documentation here.
-- Do not add `README.md`, `docs/`, or Add-to-HA badges.
+- Keep a short English `README.md` at the repo root. Do not add `docs/`, a user wiki, or Add-to-HA badges.
 - Files over 300 LOC are a defect. No `# noqa` / broad `type: ignore`.
 
 ## Relevant Skills

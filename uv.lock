@@ -212,7 +212,7 @@ wheels = [
 
 [[package]]
 name = "evaplex-iot-hacs"
-version = "0.1.1"
+version = "0.1.2"
 source = { virtual = "." }
 
 [package.dev-dependencies]

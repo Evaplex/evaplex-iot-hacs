@@ -1,4 +1,5 @@
 import json
+import struct
 import tomllib
 from pathlib import Path
 
@@ -80,6 +81,25 @@ def test_manifest_version_matches_project_and_changelog() -> None:
     assert version == project["project"]["version"]
     changelog = (ROOT / "CHANGELOG.md").read_text(encoding="utf-8")
     assert f"## {version}" in changelog
+
+
+def _png_size(path: Path) -> tuple[int, int]:
+    data = path.read_bytes()
+    assert data[:8] == b"\x89PNG\r\n\x1a\n"
+    width, height = struct.unpack(">II", data[16:24])
+    return width, height
+
+
+def test_brand_proxy_icons() -> None:
+    brand = ROOT / "custom_components" / "evaplex" / "brand"
+    icon = brand / "icon.png"
+    icon_2x = brand / "icon@2x.png"
+    assert icon.is_file()
+    assert icon_2x.is_file()
+    assert _png_size(icon) == (256, 256)
+    assert _png_size(icon_2x) == (512, 512)
+    hacs = json.loads((ROOT / "hacs.json").read_text(encoding="utf-8"))
+    assert "icon" not in hacs
 
 
 def test_hacs_action_has_no_ignore() -> None:

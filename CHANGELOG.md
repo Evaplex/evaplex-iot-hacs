@@ -2,6 +2,12 @@
 
 Notable changes to the Evaplex Home Assistant integration.
 
+## 0.1.2 - 2026-08-24
+
+### Added
+
+- Local brand images for the Home Assistant brands proxy (`icon.png` 256×256 and `icon@2x.png` 512×512). Same square mark is the logo fallback.
+
 ## 0.1.1 - 2026-08-24
 
 ### Changed

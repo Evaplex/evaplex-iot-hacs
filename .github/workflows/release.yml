@@ -1,0 +1,47 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions: {}
+
+jobs:
+  validate:
+    uses: ./.github/workflows/validate.yml
+
+  notes:
+    name: changelog
+    runs-on: ubuntu-latest
+    outputs:
+      body: ${{ steps.build.outputs.body }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - id: build
+        env:
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+        run: |
+          {
+            echo "body<<EOF"
+            python3 scripts/release_notes.py --tag "${GITHUB_REF_NAME}"
+            echo "EOF"
+          } >> "${GITHUB_OUTPUT}"
+
+  release:
+    name: GitHub Release
+    needs: [validate, notes]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ github.ref_name }}
+          body: ${{ needs.notes.outputs.body }}
+          draft: false
+          prerelease: false
+          make_latest: true

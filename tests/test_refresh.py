@@ -5,6 +5,7 @@ from typing import Any
 import pytest
 from custom_components.evaplex.application.models import DeviceCard
 from custom_components.evaplex.application.refresh import refresh_snapshots
+
 from tests.conftest import DEVICE_ID
 
 

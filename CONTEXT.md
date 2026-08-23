@@ -21,6 +21,8 @@ Custom Home Assistant integration. Config flow asks for the Evaplex IoT Hub addr
 | `custom_components/evaplex/api/parsers.py` | Response field reads |
 | `custom_components/evaplex/{button,number,switch,sensor,binary_sensor}.py` | Platforms |
 | `tests/` | Pytest without a live service |
+| `scripts/release_notes.py` | Release notes from `CHANGELOG.md` or conventional commit subjects |
+| `.github/workflows/` | hassfest, HACS, pytest, tagged GitHub Releases |
 
 ## Domain
 

@@ -20,7 +20,7 @@ dev = [
 [tool.ruff]
 target-version = "py312"
 line-length = 120
-src = ["custom_components", "tests"]
+src = ["custom_components", "tests", "scripts"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
@@ -35,6 +35,7 @@ explicit_package_bases = true
 files = [
     "custom_components/evaplex/api",
     "custom_components/evaplex/application",
+    "scripts",
     "tests",
 ]
 

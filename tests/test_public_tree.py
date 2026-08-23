@@ -1,3 +1,5 @@
+import json
+import tomllib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -69,3 +71,20 @@ def test_example_invalid_is_test_fixture_only() -> None:
         if rel.parts[0] != "tests":
             hits.append(str(rel))
     assert hits == []
+
+
+def test_manifest_version_matches_project_and_changelog() -> None:
+    manifest = json.loads((ROOT / "custom_components" / "evaplex" / "manifest.json").read_text(encoding="utf-8"))
+    project = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))
+    version = manifest["version"]
+    assert version == project["project"]["version"]
+    changelog = (ROOT / "CHANGELOG.md").read_text(encoding="utf-8")
+    assert f"## {version}" in changelog
+
+
+def test_hacs_action_ignores_only_brands() -> None:
+    text = (ROOT / ".github" / "workflows" / "validate.yml").read_text(encoding="utf-8")
+    assert "category: integration" in text
+    assert "ignore: brands" in text
+    assert "information" not in text
+    assert (ROOT / "README.md").is_file()

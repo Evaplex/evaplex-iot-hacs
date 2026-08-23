@@ -2,16 +2,29 @@ name: Validate
 
 on:
   push:
+    branches: [main]
+    tags: ["v*.*.*"]
   pull_request:
+    branches: [main]
+  schedule:
+    - cron: "0 0 * * *"
   workflow_dispatch:
+  workflow_call:
+
+concurrency:
+  group: validate-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 permissions: {}
 
 jobs:
   tests:
+    name: ruff / mypy / pytest
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: astral-sh/setup-uv@v5
       - run: uv sync --group dev
       - run: uv run ruff check .
@@ -19,16 +32,21 @@ jobs:
       - run: uv run pytest
 
   hassfest:
+    name: hassfest
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: home-assistant/actions/hassfest@master
 
   hacs:
+    name: HACS
     runs-on: ubuntu-latest
     steps:
       - name: HACS validation
         uses: hacs/action@main
         with:
           category: integration
+          # Brand icons land via home-assistant/brands. Drop this ignore after that PR merges.
           ignore: brands

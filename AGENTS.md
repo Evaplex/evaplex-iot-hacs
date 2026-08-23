@@ -31,7 +31,7 @@
 - Do not implement a device-setup UI. Do not duplicate product API documentation here.
 - Keep a short English `README.md` at the repo root. Do not add `docs/`, a user wiki, or Add-to-HA badges.
 - Files over 300 LOC are a defect. No `# noqa` / broad `type: ignore`.
-- Releases are GitHub Releases on tag `vX.Y.Z` (manifest `version` is `X.Y.Z`). Do not force-retag. Do not invent a Taskfile.
+- Releases are GitHub Releases on tag `vX.Y.Z` (manifest `version` is `X.Y.Z`). Do not force-retag. Do not invent a Taskfile. Historical tag `0.1.0` (no `v`) stays put.
 - HACS Action may `ignore: brands` until the `home-assistant/brands` PR merges. Do not ignore `information`.
 - Changelog and workflows stay public: no live hosts, tokens, or hub protocol essays.
 

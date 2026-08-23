@@ -43,8 +43,24 @@ jobs:
           persist-credentials: false
       - uses: home-assistant/actions/hassfest@master
 
+  about:
+    name: repository about
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Set GitHub description and topics
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api -X PATCH "repos/${GITHUB_REPOSITORY}" \
+            -f description='Home Assistant custom integration for Evaplex devices'
+          printf '%s\n' '{"names":["home-assistant","hacs","custom-component","integration"]}' \
+            | gh api --method PUT "repos/${GITHUB_REPOSITORY}/topics" --input -
+
   hacs:
     name: HACS
+    needs: [about]
     runs-on: ubuntu-latest
     steps:
       - name: HACS validation

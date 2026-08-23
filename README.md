@@ -6,7 +6,7 @@ Home Assistant custom integration for Evaplex devices. Install it through [HACS]
 
 1. Open HACS.
 2. Open **Custom repositories**.
-3. Add `https://github.com/Evaplex/evaplex-iot-hacs` and set the type to **Integration**.
+3. Add `https://github.com/Evaplex/evaplex-iot-homeassistant` and set the type to **Integration**.
 4. Download **Evaplex**, then restart Home Assistant.
 
 ## Add the integration

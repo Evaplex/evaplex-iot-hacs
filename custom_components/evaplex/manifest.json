@@ -3,10 +3,10 @@
   "name": "Evaplex",
   "codeowners": ["@Evaplex"],
   "config_flow": true,
-  "documentation": "https://github.com/Evaplex/evaplex-iot-hacs",
+  "documentation": "https://github.com/Evaplex/evaplex-iot-homeassistant",
   "integration_type": "hub",
   "iot_class": "cloud_polling",
-  "issue_tracker": "https://github.com/Evaplex/evaplex-iot-hacs/issues",
+  "issue_tracker": "https://github.com/Evaplex/evaplex-iot-homeassistant/issues",
   "requirements": [],
   "version": "0.1.2"
 }

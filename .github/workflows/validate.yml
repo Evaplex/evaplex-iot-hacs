@@ -53,5 +53,3 @@ jobs:
           category: integration
           github_token: ${{ github.token }}
           comment: false
-          # Brand icons land via home-assistant/brands. Drop this ignore after that PR merges.
-          ignore: brands

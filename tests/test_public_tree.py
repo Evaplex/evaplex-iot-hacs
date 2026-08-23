@@ -82,10 +82,9 @@ def test_manifest_version_matches_project_and_changelog() -> None:
     assert f"## {version}" in changelog
 
 
-def test_hacs_action_ignores_only_brands() -> None:
+def test_hacs_action_has_no_ignore() -> None:
     text = (ROOT / ".github" / "workflows" / "validate.yml").read_text(encoding="utf-8")
     assert "category: integration" in text
-    assert "ignore: brands" in text
-    assert "information" not in text
+    assert "ignore:" not in text
     assert "contents: read" in text
     assert (ROOT / "README.md").is_file()

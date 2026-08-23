@@ -2,6 +2,13 @@
 
 Notable changes to the Evaplex Home Assistant integration.
 
+## 0.1.1 - 2026-08-24
+
+### Changed
+
+- Run the HACS Action without an `ignore` key so default-store validation can see a clean check.
+- Grant GitHub Actions `contents: read` so checkout and HACS validation can reach the public repository.
+
 ## 0.1.0 - 2026-08-23
 
 ### Added

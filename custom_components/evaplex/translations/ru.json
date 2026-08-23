@@ -1,0 +1,71 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Evaplex IoT Hub",
+        "description": "Укажите адрес Evaplex IoT Hub, затем войдите в аккаунт.",
+        "data": {
+          "api_base": "Адрес"
+        },
+        "data_description": {
+          "api_base": "Введите адрес"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Войти снова",
+        "description": "Войдите в Evaplex ещё раз, чтобы восстановить это подключение."
+      }
+    },
+    "abort": {
+      "already_configured": "Этот аккаунт Evaplex уже добавлен.",
+      "already_in_progress": "Настройка уже выполняется.",
+      "authorize_url_timeout": "Не удалось начать вход.",
+      "cannot_connect": "Не удалось связаться с Evaplex.",
+      "missing_configuration": "Вход не настроен.",
+      "no_url_available": "Home Assistant не смог определить адрес возврата. Включите My Home Assistant.",
+      "oauth_error": "Не удалось войти.",
+      "oauth_failed": "Не удалось войти.",
+      "oauth_implementation_unavailable": "Вход временно недоступен.",
+      "oauth_timeout": "Время входа истекло.",
+      "oauth_unauthorized": "Во входе отказано.",
+      "reauth_successful": "Вход выполнен снова.",
+      "user_rejected_authorize": "Вход отменён."
+    },
+    "error": {
+      "invalid_api_base": "Введите адрес http или https."
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "online": {
+        "name": "В сети"
+      }
+    },
+    "button": {
+      "feed": {
+        "name": "Покормить"
+      }
+    },
+    "number": {
+      "default_portions": {
+        "name": "Порции по умолчанию"
+      }
+    },
+    "sensor": {
+      "kcal_today": {
+        "name": "Калории сегодня"
+      },
+      "next_run": {
+        "name": "Следующий запуск"
+      },
+      "weight": {
+        "name": "Вес"
+      }
+    },
+    "switch": {
+      "power": {
+        "name": "Питание"
+      }
+    }
+  }
+}

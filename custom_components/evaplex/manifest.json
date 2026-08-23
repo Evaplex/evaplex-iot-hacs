@@ -1,0 +1,12 @@
+{
+  "domain": "evaplex",
+  "name": "Evaplex",
+  "codeowners": ["@Evaplex"],
+  "config_flow": true,
+  "documentation": "https://github.com/Evaplex/evaplex-iot-hacs",
+  "integration_type": "hub",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/Evaplex/evaplex-iot-hacs/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

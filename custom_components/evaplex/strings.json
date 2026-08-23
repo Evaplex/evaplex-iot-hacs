@@ -1,0 +1,71 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Evaplex IoT Hub",
+        "description": "Enter the Evaplex IoT Hub address, then sign in.",
+        "data": {
+          "api_base": "Address"
+        },
+        "data_description": {
+          "api_base": "Enter the address"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Sign in again",
+        "description": "Sign in to Evaplex again to restore this connection."
+      }
+    },
+    "abort": {
+      "already_configured": "This Evaplex account is already configured.",
+      "already_in_progress": "Configuration is already in progress.",
+      "authorize_url_timeout": "Could not start sign-in.",
+      "cannot_connect": "Could not reach Evaplex.",
+      "missing_configuration": "Sign-in is not configured.",
+      "no_url_available": "Home Assistant could not determine a redirect URL. Enable My Home Assistant.",
+      "oauth_error": "Sign-in failed.",
+      "oauth_failed": "Sign-in failed.",
+      "oauth_implementation_unavailable": "Sign-in is temporarily unavailable.",
+      "oauth_timeout": "Sign-in timed out.",
+      "oauth_unauthorized": "Sign-in was denied.",
+      "reauth_successful": "Signed in again.",
+      "user_rejected_authorize": "Sign-in was cancelled."
+    },
+    "error": {
+      "invalid_api_base": "Enter a valid http or https address."
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "online": {
+        "name": "Online"
+      }
+    },
+    "button": {
+      "feed": {
+        "name": "Feed"
+      }
+    },
+    "number": {
+      "default_portions": {
+        "name": "Default portions"
+      }
+    },
+    "sensor": {
+      "kcal_today": {
+        "name": "Calories today"
+      },
+      "next_run": {
+        "name": "Next run"
+      },
+      "weight": {
+        "name": "Weight"
+      }
+    },
+    "switch": {
+      "power": {
+        "name": "Power"
+      }
+    }
+  }
+}
